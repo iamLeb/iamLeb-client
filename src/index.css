@@ -16,3 +16,18 @@ body {
 .badge {
     @apply px-4 py-1 font-medium rounded-full
 }
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-scroll {
+    display: flex;
+    width: calc(16rem * 20); /* 16rem is equivalent to 64 (width of the image container) times 20 (number of images * 2) */
+    animation: scroll 100s linear infinite;
+}
