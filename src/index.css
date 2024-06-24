@@ -10,7 +10,7 @@ body {
 }
 
 .btn {
-    @apply space-x-2 bg-primary hover:bg-primary-dark px-6 py-3 text-white font-medium rounded-full
+    @apply space-x-2 bg-primary hover:bg-primary-dark px-9 py-3 text-white font-medium rounded-full
 }
 
 .badge {
