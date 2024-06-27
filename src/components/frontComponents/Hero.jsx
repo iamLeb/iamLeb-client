@@ -1,111 +1,118 @@
 import { motion } from 'framer-motion';
-import { CiLocationArrow1 } from "react-icons/ci";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { MdArrowForward } from "react-icons/md";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Hero = () => {
-    const textVariant = {
-        hidden: { opacity: 0, y: 50 },
+    const fadeVariant = {
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 type: 'spring',
-                stiffness: 300,
-                damping: 20
+                stiffness: 260,
+                damping: 25
             }
         },
     };
 
-    const containerVariant = {
-        hidden: { opacity: 1 },
+    const sequenceVariant = {
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
+                staggerChildren: 0.2,
             },
         },
     };
 
     return (
-        <>
-            <section className={'text-white py-9'}>
-                <div className={'container mx-auto'}>
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={containerVariant}
-                        className="text-2xl md:text-5xl flex flex-col gap-6 py-9 md:py-16 text-center"
-                    >
-                        <motion.h1 variants={textVariant} className={'font-bold'}>
-                            Revamp, Build, Engage:
-                        </motion.h1>
-                        <motion.h1 variants={textVariant} className={'hidden md:block font-bold'}>
-                            The Ultimate Web Services Suite
-                        </motion.h1>
-                        <motion.p variants={textVariant} className={'text-sm md:text-md'}>
-                            Select from our specialized services to start growing your business today.
-                        </motion.p>
-                    </motion.div>
+        <section className={'text-gray-100 py-10'}>
+            <div className={'container mx-auto'}>
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={sequenceVariant}
+                    className="text-3xl md:text-5xl flex flex-col gap-5 py-10 md:py-18 md:pt-24 text-center"
+                >
+                    <motion.h1 variants={fadeVariant} className={'font-extrabold'}>
+                        Imagine, Achieve, Maximize:
+                    </motion.h1>
+                    <motion.h1 variants={fadeVariant} className={'hidden md:block font-extrabold'}>
+                        Leading Exceptional Business Solutions
+                    </motion.h1>
+                    <motion.p variants={fadeVariant} className={'text-base md:text-lg'}>
+                        Choose from our tailored solutions to elevate your business now.
+                    </motion.p>
+                </motion.div>
+            </div>
+
+            <div className={'container mx-auto md:flex gap-5 px-5 md:px-0 space-y-5 md:space-y-0'}>
+                <div className={'bg-[#f0e5ff] rounded-2xl flex-1'}>
+                    <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
+                        <img className={'object-center object-cover rounded-l-2xl'}
+                             src="https://webdev.com/wp-content/uploads/2024/03/Website-Redesigns-tide.png"
+                             alt="Website Redesigns"/>
+                    </div>
+                    <div className={'p-7'}>
+                        <div className={'flex flex-col gap-3 py-5 text-neutral-900 font-semibold '}>
+                            <h1 className={'text-2xl md:text-3xl'}>Expert Website Overhauls</h1>
+                            <p className={'text-sm md:text-base'}>
+                                Our team will revamp your website from top to bottom, focusing on lead generation.
+                            </p>
+                        </div>
+                        <button
+                            className={'flex items-center gap-3 badge bg-neutral-700 transition-transform duration-300 hover:scale-105'}>
+                            <span>Learn More</span>
+                            <FaLongArrowAltRight/>
+                        </button>
+                    </div>
+
                 </div>
 
-                <div className={'container mx-auto md:flex gap-4 px-4 md:px-0 space-y-6 md:space-y-0'}>
-                    <div className={'bg-[#eae6ff] rounded-xl flex-1'}>
-                        <div className={'p-6'}>
-                            <div className={'flex flex-col gap-4 py-4 text-neutral-900 font-medium '}>
-                                <h1 className={'text-xl md:text-2xl'}>Website Redesigns by Our Experts</h1>
-                                <p className={'text-xs md:text-sm'}>
-                                    We will completely redesign your website from start to finish, using a lead-driven approach.
-                                </p>
-                            </div>
-                            <button className={'flex items-center gap-4 badge bg-neutral-800 transition-all duration-300 hover:scale-105'}>
-                                <span>View Product</span>
-                                <FaArrowRightLong />
-                            </button>
+                <div className={'bg-[#fff9d8] rounded-2xl flex-1'}>
+                    <div className={'p-7'}>
+                        <div className={'flex flex-col gap-3 py-5 text-neutral-900 font-semibold '}>
+                            <h1 className={'text-2xl md:text-3xl'}>Site Redesigns by Specialists</h1>
+                            <p className={'text-sm md:text-base'}>
+                                Complete redesign services for your website, tailored for better leads.
+                            </p>
                         </div>
-                        <div className={'overflow-hidden pl-9 rounded-r-lg'}>
-                            <img className={'object-center object-cover rounded-l-xl'}
-                                 src="https://webdev.com/wp-content/uploads/2024/03/Website-Redesigns-tide.png" alt="" />
-                        </div>
+                        <button
+                            className={'flex  items-center gap-3 badge bg-neutral-700 transition-transform duration-300 hover:scale-105'}>
+                            <span>See Details</span>
+                            <FaLongArrowAltRight/>
+                        </button>
                     </div>
-                    <div className={'bg-[#f6e4fa] rounded-xl flex-1'}>
-                        <div className={'p-6'}>
-                            <div className={'flex flex-col gap-4 py-4 text-neutral-900 font-medium '}>
-                                <h1 className={'text-xl md:text-2xl'}>Website Redesigns by Our Experts</h1>
-                                <p className={'text-xs md:text-sm'}>
-                                    We will completely redesign your website from start to finish, using a lead-driven approach.
-                                </p>
-                            </div>
-                            <button className={'flex  items-center gap-4 badge bg-neutral-800 transition-all duration-300 hover:scale-105'}>
-                                <span>View Product</span>
-                                <FaArrowRightLong />
-                            </button>
-                        </div>
-                        <div className={'overflow-hidden pl-9 rounded-r-lg'}>
-                            <img className={'object-center object-cover rounded-l-xl'}
-                                 src="https://webdev.com/wp-content/uploads/2024/03/slide_0-cut.png" alt="" />
-                        </div>
-                    </div>
-                    <div className={'bg-[#fff6d2] rounded-xl flex-1'}>
-                        <div className={'p-6'}>
-                            <div className={'flex flex-col gap-4 py-4 text-neutral-900 font-medium '}>
-                                <h1 className={'text-xl md:text-2xl'}>Website Redesigns by Our Experts</h1>
-                                <p className={'text-xs md:text-sm'}>
-                                    We will completely redesign your website from start to finish, using a lead-driven approach.
-                                </p>
-                            </div>
-                            <button className={'flex  items-center gap-4 badge bg-neutral-800 transition-all duration-300 hover:scale-105'}>
-                                <span>View Product</span>
-                                <FaArrowRightLong />
-                            </button>
-                        </div>
-                        <div className={'overflow-hidden pl-9 rounded-r-lg'}>
-                            <img className={'object-center object-cover rounded-l-xl'}
-                                 src="https://webdev.com/wp-content/uploads/2024/03/dashboard-SaaS-cut.png" alt="" />
-                        </div>
+                    <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
+                        <img className={'object-center object-cover rounded-l-2xl'}
+                             src="https://webdev.com/wp-content/uploads/2024/03/dashboard-SaaS-cut.png"
+                             alt="Site Redesigns by Specialists"/>
                     </div>
                 </div>
-            </section>
-        </>
+
+                <div className={'bg-[#f8e8fd] rounded-2xl flex-1'}>
+                    <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
+                        <img className={'object-center object-cover rounded-l-2xl'}
+                             src="https://webdev.com/wp-content/uploads/2024/03/slide_0-cut.png"
+                             alt="Professional Site Revamps"/>
+                    </div>
+                    <div className={'p-7'}>
+                        <div className={'flex flex-col gap-3 py-5 text-neutral-900 font-semibold '}>
+                            <h1 className={'text-2xl md:text-3xl'}>Professional Site Revamps</h1>
+                            <p className={'text-sm md:text-base'}>
+                                We undertake a complete overhaul of your site, focusing on user engagement.
+                            </p>
+                        </div>
+                        <button
+                            className={'flex  items-center gap-3 badge bg-neutral-700 transition-transform duration-300 hover:scale-105'}>
+                            <span>Discover More</span>
+                            <FaLongArrowAltRight/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 

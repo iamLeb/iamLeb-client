@@ -53,14 +53,23 @@ const Header = () => {
                     label: 'Website Service',
                     path: '/website-service',
                 }, {
+                    label: 'Graphic Designing',
+                    path: '/graphic-designing',
+                }, {
                     label: 'Branding',
                     path: '/branding',
                 }, {
-                    label: 'Logo Design',
-                    path: '/logo-design',
+                    label: 'Content Writing',
+                    path: '/content-writing',
                 }, {
-                    label: 'Search Engine Optimization',
-                    path: '/search-engine-optimization',
+                    label: 'Ad Management',
+                    path: '/ad-management',
+                }, {
+                    label: 'Social media Management',
+                    path: '/social-media-management',
+                },  {
+                    label: 'Virtual Assistant',
+                    path: '/virtual-assistant',
                 }
             ]
         },{
@@ -77,7 +86,7 @@ const Header = () => {
     const location = useLocation();
 
     return (
-        <section className="relative pb-9">
+        <section className="relative pb-9 z-50">
             <div className="bg-white shadow-md py-5 px-4 fixed w-full">
                 <div className="container mx-auto flex justify-between items-center">
                     <h1 className="text-2xl md:text-3xl">
@@ -87,7 +96,7 @@ const Header = () => {
                         {links.map((link, index) => (
                             <li key={index} className="relative" ref={el => dropdownRefs.current[index] = el}>
                                 <div className="flex items-center space-x-2 cursor-pointer" onClick={() => toggleSubCategory(index)}>
-                                    <span className="text-primary">{link.label}</span>
+                                    <span className={location.pathname === link.path &&'text-primary'}>{link.label}</span>
                                     {link.items && <RiArrowDropDownLine />}
                                 </div>
                                 {link.items && subCategoryOpen[index] && (
@@ -145,7 +154,7 @@ const Header = () => {
                                     )}
                                 </div>
                                 {item.items && (
-                                    <div className={`bg-[#eae6ff] rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${subCategoryOpen[i] ? 'max-h-40' : 'max-h-0'}`}>
+                                    <div className={`bg-[#eae6ff] rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${subCategoryOpen[i] ? 'max-h-60' : 'max-h-0'}`}>
                                         <ul className="flex flex-col gap-2 p-3">
                                             {item.items.map((subItem, j) => (
                                                 <li key={j} className="hover:text-primary">
