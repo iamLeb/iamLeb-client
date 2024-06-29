@@ -70,7 +70,7 @@ const Hero = () => {
 
                 </div>
 
-                <div className={'bg-[#fff9d8] rounded-2xl flex-1'}>
+                <div className={'bg-[#f8fbf1] rounded-2xl flex-1'}>
                     <div className={'p-7'}>
                         <div className={'flex flex-col gap-3 py-5 text-neutral-900 font-semibold '}>
                             <h1 className={'text-2xl md:text-3xl'}>Site Redesigns by Specialists</h1>

@@ -95,7 +95,7 @@ const Header = () => {
                     <ul className="hidden md:flex space-x-8 font-medium">
                         {links.map((link, index) => (
                             <li key={index} className="relative" ref={el => dropdownRefs.current[index] = el}>
-                                <div className="flex items-center space-x-2 cursor-pointer" onClick={() => toggleSubCategory(index)}>
+                                <div className="flex items-center space-x-2 cursor-pointer hover:text-primary" onClick={() => toggleSubCategory(index)}>
                                     <span className={location.pathname === link.path &&'text-primary'}>{link.label}</span>
                                     {link.items && <RiArrowDropDownLine />}
                                 </div>
