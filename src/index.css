@@ -31,3 +31,14 @@ body {
     width: calc(16rem * 20); /* 16rem is equivalent to 64 (width of the image container) times 20 (number of images * 2) */
     animation: scroll 100s linear infinite;
 }
+
+@layer components {
+    .hide-spinner::-webkit-outer-spin-button,
+    .hide-spinner::-webkit-inner-spin-button {
+        @apply hidden;
+    }
+
+    .hide-spinner {
+        -moz-appearance: textfield; /* Firefox */
+    }
+}
