@@ -9,18 +9,18 @@ const Contact = () => {
                             className={'font-light text-xl text-primary px-3 border-r-2 border-l-2 border-primary'}>
                             <span className={'text-sm'}>Contact</span>
                         </div>
-                        <h1 className={'text-3xl md:text-6xl font-bold md:w-2/3'}>Let's discuss about your project!</h1>
+                        <h1 className={'text-3xl md:text-6xl font-bold'}>Let's discuss your project!</h1>
                     </div>
 
                     <div className={'md:flex'}>
-                        <div className={'overflow-hidden rounded-l-lg w-full'}>
+                        <div className={'overflow-hidden rounded-l-lg w-full h-full'}>
                             <img
                                 className={'object-cover object-center'}
                                 src="https://images.pexels.com/photos/3727464/pexels-photo-3727464.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="photo"/>
                         </div>
 
-                        <div className={'bg-white rounded-r-lg shadow-md p-5 w-full'}>
+                        <div className={'bg-white rounded-r-lg shadow-md px-9 py-3 w-full'}>
                             <form>
                                 <div className={'flex flex-col gap-3 py-3'}>
                                     <input
