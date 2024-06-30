@@ -1,4 +1,3 @@
-import { GrSend } from "react-icons/gr";
 const Contact = () => {
     return (
         <section className={'bg-[#f8fbff] py-14'}>

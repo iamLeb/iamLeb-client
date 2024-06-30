@@ -17,72 +17,54 @@ const Header = () => {
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
+
     const toggleSubCategory = (index) => {
-        setSubCategoryOpen(prevState => ({
+        setSubCategoryOpen((prevState) => ({
             ...prevState,
-            [index]: !prevState[index]
+            [index]: !prevState[index],
         }));
     };
+
     const handleClickOutside = (event) => {
         if (dropdownRefs.current) {
             dropdownRefs.current.forEach((ref, index) => {
                 if (ref && !ref.contains(event.target)) {
-                    setSubCategoryOpen(prevState => ({
+                    setSubCategoryOpen((prevState) => ({
                         ...prevState,
-                        [index]: false
+                        [index]: false,
                     }));
                 }
             });
         }
     };
+
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
     const links = [
+        { label: 'Home', path: '/' },
         {
-            label: 'Home',
-            path: '/',
-        },{
             label: 'Services',
             path: '/services',
             items: [
-                {
-                    label: 'Website Service',
-                    path: '/website-service',
-                }, {
-                    label: 'Graphic Designing',
-                    path: '/graphic-designing',
-                }, {
-                    label: 'Branding',
-                    path: '/branding',
-                }, {
-                    label: 'Content Writing',
-                    path: '/content-writing',
-                }, {
-                    label: 'Ad Management',
-                    path: '/ad-management',
-                }, {
-                    label: 'Social media Management',
-                    path: '/social-media-management',
-                },  {
-                    label: 'Virtual Assistant',
-                    path: '/virtual-assistant',
-                }
-            ]
-        },{
-            label: 'About',
-            path: '/about'
-        },{
-            label: 'Portfolio',
-            path: '/portfolio'
-        },{
-            label: 'Contact',
-            path: '/contact'
-        }
+                { label: 'Website Service', path: '/website-service' },
+                { label: 'Graphic Designing', path: '/graphic-designing' },
+                { label: 'Branding', path: '/branding' },
+                { label: 'Content Writing', path: '/content-writing' },
+                { label: 'Ad Management', path: '/ad-management' },
+                { label: 'Social media Management', path: '/social-media-management' },
+                { label: 'Virtual Assistant', path: '/virtual-assistant' },
+            ],
+        },
+        { label: 'About', path: '/about' },
+        { label: 'Portfolio', path: '/portfolio' },
+        { label: 'Contact', path: '/contact' },
     ];
+
     const location = useLocation();
 
     return (
@@ -94,16 +76,22 @@ const Header = () => {
                     </h1>
                     <ul className="hidden md:flex space-x-8 font-medium">
                         {links.map((link, index) => (
-                            <li key={index} className="relative" ref={el => dropdownRefs.current[index] = el}>
-                                <div className="flex items-center space-x-2 cursor-pointer hover:text-primary" onClick={() => toggleSubCategory(index)}>
-                                    <span className={location.pathname === link.path &&'text-primary'}>{link.label}</span>
+                            <li key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
+                                <div
+                                    className="flex items-center space-x-2 cursor-pointer hover:text-primary"
+                                    onClick={() => toggleSubCategory(index)}
+                                >
+                                    <span className={location.pathname === link.path && 'text-primary'}>{link.label}</span>
                                     {link.items && <RiArrowDropDownLine />}
                                 </div>
                                 {link.items && subCategoryOpen[index] && (
                                     <div className="absolute left-0 mt-7 bg-white shadow-lg">
                                         <ul className="flex flex-col">
                                             {link.items.map((item, subIndex) => (
-                                                <li key={subIndex} className="text-sm font-light px-4 whitespace-nowrap overflow-hidden border-b py-3 hover:text-primary cursor-pointer">
+                                                <li
+                                                    key={subIndex}
+                                                    className="text-sm font-light px-4 whitespace-nowrap overflow-hidden border-b py-3 hover:text-primary cursor-pointer"
+                                                >
                                                     {item.label}
                                                 </li>
                                             ))}
@@ -115,21 +103,27 @@ const Header = () => {
                     </ul>
                     <button className="hidden md:flex items-center btn text-sm">
                         <span className="relative flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"><FaRegUserCircle/></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500">
+                                <FaRegUserCircle />
+                            </span>
                         </span>
                         <span>Login</span>
                     </button>
 
                     {/* Mobile View */}
                     <div onClick={toggleSidebar} className="block md:hidden text-primary cursor-pointer">
-                        {sidebarOpen ? <GrClose size={26}/> : <TiThMenuOutline size={26} />}
+                        {sidebarOpen ? <GrClose size={26} /> : <TiThMenuOutline size={26} />}
                     </div>
                 </div>
             </div>
 
             {/* Sidebar */}
-            <div className={`fixed inset-y-0 left-0 z-50 bg-white w-4/5 md:w-80 transition-transform duration-300 ease-in-out transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div
+                className={`fixed inset-y-0 left-0 z-50 bg-white w-4/5 md:w-80 transition-transform duration-300 ease-in-out transform ${
+                    sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                }`}
+            >
                 <div className="shadow p-4">
                     <h1 className="text-2xl md:text-3xl">
                         iam<span className="font-bold text-primary">Leb</span>
@@ -145,7 +139,10 @@ const Header = () => {
                         </li>
                         {links.map((item, i) => (
                             <li key={item.label}>
-                                <div className="flex justify-between space-x-2 items-center py-2 hover:text-primary" onClick={() => toggleSubCategory(i)}>
+                                <div
+                                    onClick={() => toggleSubCategory(i)}
+                                    className="flex justify-between space-x-2 items-center py-2 hover:text-primary"
+                                >
                                     <span className={`${location.pathname === item.path ? 'text-primary' : ''}`}>{item.label}</span>
                                     {item.items && (
                                         <div>
@@ -154,7 +151,11 @@ const Header = () => {
                                     )}
                                 </div>
                                 {item.items && (
-                                    <div className={`bg-[#eae6ff] rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${subCategoryOpen[i] ? 'max-h-60' : 'max-h-0'}`}>
+                                    <div
+                                        className={`bg-[#eae6ff] rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${
+                                            subCategoryOpen[i] ? 'max-h-60' : 'max-h-0'
+                                        }`}
+                                    >
                                         <ul className="flex flex-col gap-2 p-3">
                                             {item.items.map((subItem, j) => (
                                                 <li key={j} className="hover:text-primary">
@@ -181,14 +182,18 @@ const Header = () => {
                             <BiPhoneCall size={32} />
                             <div>
                                 <p className="text-gray-400 text-sm">Call us:</p>
-                                <p className="font-bold text-primary"><a href="tel:12045586856">(204) 558 6856</a></p>
+                                <p className="font-bold text-primary">
+                                    <a href="tel:12045586856">(204) 558 6856</a>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div className="pt-3 text-sm">
                         <p className="text-gray-600">Email:</p>
-                        <span className="font-medium"><a href="mailto:info@iamleb.com">info@iamleb.com</a></span>
+                        <span className="font-medium">
+                            <a href="mailto:info@iamleb.com">info@iamleb.com</a>
+                        </span>
                     </div>
                 </div>
             </div>

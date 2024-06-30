@@ -10,6 +10,7 @@ function App() {
           <Routes>
               <Route path="/" element={<FrontLayouts />}>
                   <Route index element={<Home />} />
+                  <Route path='/portfolio' element={<Home />} />
               </Route>
           </Routes>
       </BrowserRouter>
