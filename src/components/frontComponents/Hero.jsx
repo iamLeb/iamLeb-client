@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { MdArrowForward } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import banner from "../../assets/images/Banner.png";
+import agency from "../../assets/images/Agency.png";
+import ancy from "../../assets/images/ancy.png";
 
 const Hero = () => {
     const fadeVariant = {
@@ -27,7 +29,7 @@ const Hero = () => {
     };
 
     return (
-        <section className={'text-gray-100 py-10'}>
+        <section className={'text-gray-100'}>
             <div className={'container mx-auto'}>
                 <motion.div
                     initial="hidden"
@@ -51,7 +53,7 @@ const Hero = () => {
                 <div className={'bg-[#f0e5ff] rounded-2xl flex-1'}>
                     <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
                         <img className={'object-center object-cover rounded-l-2xl'}
-                             src="https://webdev.com/wp-content/uploads/2024/03/Website-Redesigns-tide.png"
+                             src={agency}
                              alt="Website Redesigns"/>
                     </div>
                     <div className={'p-7'}>
@@ -71,6 +73,11 @@ const Hero = () => {
                 </div>
 
                 <div className={'bg-[#f8fbf1] rounded-2xl flex-1'}>
+                    <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
+                        <img className={'object-center object-cover rounded-l-2xl'}
+                             src={banner}
+                             alt="Site Redesigns by Specialists"/>
+                    </div>
                     <div className={'p-7'}>
                         <div className={'flex flex-col gap-3 py-5 text-neutral-900 font-semibold '}>
                             <h1 className={'text-2xl md:text-3xl'}>Site Redesigns by Specialists</h1>
@@ -84,17 +91,12 @@ const Hero = () => {
                             <FaLongArrowAltRight/>
                         </button>
                     </div>
-                    <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
-                        <img className={'object-center object-cover rounded-l-2xl'}
-                             src="https://webdev.com/wp-content/uploads/2024/03/dashboard-SaaS-cut.png"
-                             alt="Site Redesigns by Specialists"/>
-                    </div>
                 </div>
 
                 <div className={'bg-[#f8e8fd] rounded-2xl flex-1'}>
                     <div className={'overflow-hidden pl-10 rounded-r-2xl'}>
                         <img className={'object-center object-cover rounded-l-2xl'}
-                             src="https://webdev.com/wp-content/uploads/2024/03/slide_0-cut.png"
+                             src={ancy}
                              alt="Professional Site Revamps"/>
                     </div>
                     <div className={'p-7'}>

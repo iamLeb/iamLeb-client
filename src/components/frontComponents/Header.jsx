@@ -7,9 +7,11 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxCaretUp } from "react-icons/rx";
 import { HiOutlineLogin } from "react-icons/hi";
 import { BiPhoneCall } from "react-icons/bi";
-import { useLocation } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const Header = () => {
+    const navigate = useNavigate();
+
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [subCategoryOpen, setSubCategoryOpen] = useState({});
     const dropdownRefs = useRef([]);
@@ -46,7 +48,7 @@ const Header = () => {
     }, []);
 
     const links = [
-        { label: 'Home', path: '/' },
+        { label: 'Home', path: '' },
         {
             label: 'Services',
             path: '/services',
@@ -68,7 +70,7 @@ const Header = () => {
     const location = useLocation();
 
     return (
-        <section className="relative pb-9 z-50">
+        <header className="relative pb-9 z-50">
             <div className="bg-white shadow-md py-5 px-4 fixed w-full">
                 <div className="container mx-auto flex justify-between items-center">
                     <h1 className="text-2xl md:text-3xl">
@@ -81,7 +83,7 @@ const Header = () => {
                                     className="flex items-center space-x-2 cursor-pointer hover:text-primary"
                                     onClick={() => toggleSubCategory(index)}
                                 >
-                                    <span className={location.pathname === link.path && 'text-primary'}>{link.label}</span>
+                                    <span onClick={() => link.items ?? navigate(link.path)} className={location.pathname === link.path && 'text-primary'}>{link.label}</span>
                                     {link.items && <RiArrowDropDownLine />}
                                 </div>
                                 {link.items && subCategoryOpen[index] && (
@@ -124,7 +126,7 @@ const Header = () => {
                     sidebarOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
             >
-                <div className="shadow p-4">
+                <div className="shadow p-5">
                     <h1 className="text-2xl md:text-3xl">
                         iam<span className="font-bold text-primary">Leb</span>
                     </h1>
@@ -133,7 +135,7 @@ const Header = () => {
                     <ul className="flex flex-col gap-2 border-b pb-5">
                         <li>
                             <div className="flex space-x-2 items-center border-b py-3">
-                                <CiLogin className="text-primary" />
+                                <CiLogin className="text-primary text-2xl" />
                                 <span>Login</span>
                             </div>
                         </li>
@@ -197,7 +199,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
     );
 };
 

@@ -3,22 +3,27 @@ import img from "../../assets/images/portfolio1.jpg";
 import img1 from "../../assets/images/portfolio2.png";
 import img4 from "../../assets/images/portfolio5.png";
 import img5 from "../../assets/images/portfolio6.png";
+import animal from "../../assets/images/animals.png";
 
 const images = [
     "https://webdev.com/wp-content/uploads/elementor/thumbs/Long-mockup_11-q4up2e3pk2vbutxb1clixh7rhzyi3smy1zql8apqg4.png",
     img,
     img4,
     img5,
+    animal,
     "https://webdev.com/wp-content/uploads/elementor/thumbs/Long-mockup_12@1.2-q4upgwpz3yqr60u69mi3ftc1s8ekzi9pdugk256uck.jpg",
     img1,
     img4,
+    animal,
     img5,
     "https://webdev.com/wp-content/uploads/elementor/thumbs/Long-mockup_14@1.2-q4upgvs4x4pguevjf43gvbkl6uj7rt5z1pt2kv88is.jpg",
     img,
     img4,
     img5,
+    animal,
     "https://webdev.com/wp-content/uploads/elementor/thumbs/Long-mockup_15@1.2-q4uq5w9isey5sujjcxc280c69z8ulugttis8by52xw.jpg",
     img1,
+    animal,
     img4,
     img5,
     "https://webdev.com/wp-content/uploads/elementor/thumbs/Long-mockup_4@1.2-q4uq4ssatdg4984vrg9qbaatbsnfmk43o3du6brm78.jpg",

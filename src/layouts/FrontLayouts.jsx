@@ -8,7 +8,10 @@ const FrontLayouts = () => {
         <div className={'h-screen bg-gradient-to-r from-primary to-primary-dark'}>
             <Header />
                 {/* This div should wrap the content where you want the blur effect */}
+            <div className={'pt-16 py-14'}>
                 <Outlet />
+            </div>
+
             <Footer />
         </div>
     );
